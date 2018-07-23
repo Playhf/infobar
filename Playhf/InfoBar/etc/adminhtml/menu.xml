@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Playhf_InfoBar::notifications"
+             title="Notifications"
+             translate="title"
+             parent="Magento_Backend::marketing"
+             resource="Playhf_InfoBar::notifications"
+             sortOrder="25"
+             module="Playhf_InfoBar" />
+        <add id="Playhf_InfoBar::top_info_bar"
+             translate="title"
+             title="Top Information Bar"
+             module="Playhf_InfoBar"
+             resource="Playhf_InfoBar::top_info_bar"
+             sortOrder="10"
+             parent="Playhf_InfoBar::notifications"
+             action="notification/infobar/index" />
+    </menu>
+</config>

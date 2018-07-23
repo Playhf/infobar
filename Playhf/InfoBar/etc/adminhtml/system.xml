@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="infobar" translate="label" sortOrder="999999" class="infobar-tab">
+            <label>Notifications</label>
+        </tab>
+        <section id="top_infobar" translate="label" type="text" sortOrder="-1000" showInDefault="1" showInWebsite="1" showInStore="1">
+            <resource>Playhf_InfoBar::config</resource>
+            <class>separator-top</class>
+            <label>Top Information Bars</label>
+            <tab>infobar</tab>
+            <group id="general" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="isactive" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Top Information Bars</label>
+                    <comment><![CDATA[Enable or Disable top information bars rendering]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
