@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Playhf_InfoBar::css/infobar.css" />
+    </head>
     <body>
         <referenceContainer name="header.container">
-            <container name="top.infobar" before="-">
-                <block class="Playhf\InfoBar\Block\InfoBar"
-                       name="top.bars.list"
-                       ifconfig="top_infobar/general/isactive"
-                       template="Playhf_InfoBar::infobar/list"/>
-            </container>
+            <block class="Magento\Framework\View\Element\Template"
+                   name="top.bars.list"
+                   ifconfig="top_infobar/general/isactive"
+                   template="Playhf_InfoBar::list.phtml"
+                   before="-">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Playhf\InfoBar\ViewModel\InfobarList</argument>
+                </arguments>
+            </block>
         </referenceContainer>
     </body>
 </page>

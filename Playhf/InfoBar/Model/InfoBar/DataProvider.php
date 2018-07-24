@@ -17,12 +17,12 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
         $name,
         $primaryFieldName,
         $requestFieldName,
-        CollectionFactory $blockCollectionFactory,
+        CollectionFactory $collectionFactory,
         DataPersistorInterface $dataPersistor,
         array $meta = [],
         array $data = []
     ) {
-        $this->collection = $blockCollectionFactory->create();
+        $this->collection = $collectionFactory->create();
         $this->dataPersistor = $dataPersistor;
         parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
     }
@@ -37,14 +37,6 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
         foreach ($items as $infobar) {
             $this->loadedData[$infobar->getId()] = $infobar->getData();
         }
-
-//        $data = $this->dataPersistor->get('cms_block');
-//        if (!empty($data)) {
-//            $infobar = $this->collection->getNewEmptyItem();
-//            $infobar->setData($data);
-//            $this->loadedData[$infobar->getId()] = $infobar->getData();
-//            $this->dataPersistor->clear('cms_block');
-//        }
 
         return $this->loadedData;
     }

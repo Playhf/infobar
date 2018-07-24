@@ -1,1 +1,29 @@
 <?php
+/** @var \Magento\Framework\View\Element\Template $block */
+
+/** @var \Playhf\InfoBar\ViewModel\InfobarList $viewModel */
+$viewModel = $block->getViewModel();
+?>
+
+<div class="infobar-wrapper" data-bind="scope: 'infobar-component'">
+    <ul class="infobar-list">
+        <!--ko foreach: {data: getItems(), as: 'infobar'} -->
+            <li class="infobar-item" data-bind="style: {'background-color': infobar.bg_color}, text: infobar.content"></li>
+        <!--/ko-->
+    </ul>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "infobar-component": {
+                        "component": "Playhf_InfoBar/js/infobar",
+                        "items": <?= $viewModel->getItemsJson() ?>
+                    }
+                }
+            }
+        }
+    }
+</script>

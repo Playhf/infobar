@@ -81,7 +81,7 @@ class InfoBarRepository implements InfoBarRepositoryInterface
         DataObjectHelper $dataObjectHelper,
         DataObjectProcessor $dataObjectProcessor,
         StoreManagerInterface $storeManager,
-        CollectionProcessorInterface $collectionProcessor = null
+        CollectionProcessorInterface $collectionProcessor
     )
     {
         $this->resource = $resource;
@@ -90,8 +90,8 @@ class InfoBarRepository implements InfoBarRepositoryInterface
         $this->searchResultFactory = $searchResultFactory;
         $this->dataObjectHelper = $dataObjectHelper;
         $this->dataObjectProcessor = $dataObjectProcessor;
+        $this->collectionProcessor = $collectionProcessor;
         $this->storeManager = $storeManager;
-        $this->collectionProcessor = $collectionProcessor ?: $this->getCollectionProcessor();
     }
 
     /**

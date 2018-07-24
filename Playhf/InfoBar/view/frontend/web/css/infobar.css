@@ -1,0 +1,10 @@
+.infobar-wrapper .infobar-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.infobar-wrapper .infobar-list .infobar-item {
+    text-align: center;
+    padding: 5px 0;
+}

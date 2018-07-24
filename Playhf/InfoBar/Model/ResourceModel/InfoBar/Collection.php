@@ -146,33 +146,16 @@ class Collection extends AbstractCollection
     }
 
     /**
-     * Join store relation table if there is store filter
-     *
-     * @param string $tableName
-     * @param string|null $linkField
-     * @return void
+     * @return $this
      */
-    protected function joinStoreRelationTable($tableName, $linkField)
+    protected function _beforeLoad()
     {
-        if ($this->getFilter('store_id')) {
-            $this->getSelect()->join(
-                ['store_table' => $this->getTable($tableName)],
-                'main_table.' . $linkField . ' = store_table.' . $linkField,
-                []
-            )->group(
-                'main_table.' . $linkField
-            );
-        }
-        parent::_renderFiltersBefore();
-    }
+        $this->getSelect()->join(
+            ['store_table' => $this->getTable(InstallSchema::TABLE_NAME_STORES)],
+            'main_table.' . InfoBarInterface::ENTITY_ID . ' = store_table.' . InfoBarInterface::ENTITY_ID,
+            []
+        );
 
-    /**
-     * Perform operations before rendering filters
-     *
-     * @return void
-     */
-    protected function _renderFiltersBefore()
-    {
-        $this->joinStoreRelationTable(InstallSchema::TABLE_NAME_STORES, InfoBarInterface::ENTITY_ID);
+        return parent::_beforeLoad();
     }
 }
