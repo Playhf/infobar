@@ -8,7 +8,7 @@ $viewModel = $block->getViewModel();
 <div class="infobar-wrapper" data-bind="scope: 'infobar-component'">
     <ul class="infobar-list">
         <!--ko foreach: {data: getItems(), as: 'infobar'} -->
-            <li class="infobar-item" data-bind="style: {'background-color': infobar.bg_color}, text: infobar.content"></li>
+            <li class="infobar-item" data-bind="style: {'background-color': infobar.bg_color}, html: infobar.content"></li>
         <!--/ko-->
     </ul>
 </div>
