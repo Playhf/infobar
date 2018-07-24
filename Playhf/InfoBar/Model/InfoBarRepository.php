@@ -104,7 +104,7 @@ class InfoBarRepository implements InfoBarRepositoryInterface
         try {
             $this->resource
                 ->save($infoBar)
-                ->saveStores($infoBar);;
+                ->saveStores($infoBar);
         } catch (\Exception $exception) {
             throw new CouldNotSaveException(
                 __('Could not save the information bar: %1', $exception->getMessage()),
